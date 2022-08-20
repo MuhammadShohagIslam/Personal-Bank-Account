@@ -1,13 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Personal Bank Account</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title>Personal Bank Account</title>
+    </head>
+    <body class="bg-black">
+        <section class="grid grid-cols-3 gap-3 w-4/5 m-auto mt-12">
+            <div
+                class="bg-cyan-400 text-3xl text-white font-semibold p-8 rounded-xl"
+            >
+                <h2>Saving</h2>
+                <h2>$<span id="savingTotal">00</span></h2>
+            </div>
+            <div
+                class="bg-red-400 text-3xl text-white font-semibold p-8 rounded-xl"
+            >
+                <h2>Collecting</h2>
+                <h2>$<span id="collectingTotal">00</span></h2>
+            </div>
+            <div
+                class="bg-orange-400 text-3xl text-white font-semibold p-8 rounded-xl"
+            >
+                <h2>Balance</h2>
+                <h2>$<span id="balanceTotal">00</span></h2>
+            </div>
+        </section>
+        <section class="grid grid-cols-2 gap-3 w-9/12 m-auto mt-12">
+            <div
+                class="bg-cyan-400 p-8 rounded-xl"
+            >
+                <h2 class="text-2xl mb-4 text-white font-semibold">Please Saving Money</h2>
+                <input
+                    class="block w-10/12 mb-2 px-3 py-2"
+                    type="text"
+                    id="savingMoneyInput"
+                    placeholder="$ Amount You Want To Save to Your Personal Account"
+                />
+
+                <button
+                    id="submitSaving"
+                    class="block px-5 py-2 mt-3 bg-black text-white hover:bg-red-400 hover:text-white"
+                >
+                    Saving
+                </button>
+            </div>
+            <div
+            class="bg-cyan-400 p-8 rounded-xl"
+        >
+            <h2 class="text-2xl mb-4 text-white font-semibold">Please Collecting Money</h2>
+            <input
+                class="block w-10/12 mb-2 px-3 py-2"
+                type="text"
+                id="collectingMoneyInput"
+                placeholder="$ Amount You Want To Collecting to Your Personal Account"
+            />
+
+            <button
+                id="submitCollecting"
+                class="block px-5 py-2 mt-3 bg-black text-white hover:bg-red-400 hover:text-white"
+            >
+                Collecting
+            </button>
+        </div>
+        </section>
+        <script src="js/deposit.js"></script>
+    </body>
 </html>
