@@ -2,7 +2,18 @@
 function getInputField(inputField) {
     const moneyInputField = document.getElementById(inputField);
     const moneyInputFieldValueString = moneyInputField.value;
-    const moneyInputFieldValue = parseFloat(moneyInputFieldValueString);
+    let moneyInputFieldValue;
+    // checking if it is number or text value
+    if (
+        !isNaN(moneyInputFieldValueString) &&
+        moneyInputFieldValueString !== ""
+    ) {
+        moneyInputFieldValue = parseFloat(moneyInputFieldValueString);
+    } else {
+        alert("Please Provide Number");
+        moneyInputField.value = "";
+        return 0;
+    }
     moneyInputField.value = "";
     return moneyInputFieldValue;
 }
@@ -14,7 +25,6 @@ function addTheSavingOrCollectingArea(fieldArea, addingMoney) {
     const currentTotalValue = parseFloat(currentTotalString);
     const totalMoney = addingMoney + currentTotalValue;
     currentTotal.innerText = totalMoney;
-    return totalMoney;
 }
 
 // adding or reduce money from balance
@@ -27,7 +37,13 @@ function TotalBalanceMoney(balanceField, totalMoney, isIncrease) {
     if (isIncrease) {
         totalBalance = currentBalanceValue + totalMoney;
     } else {
-        totalBalance = currentBalanceValue - totalMoney;
+        if (currentBalanceValue < totalMoney) {
+            alert("You Do Not Have Enough Money");
+            return 0;
+        } else {
+            totalBalance = currentBalanceValue - totalMoney;
+        }
     }
     currentBalance.innerText = totalBalance;
+    return totalBalance;
 }

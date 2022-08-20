@@ -5,12 +5,18 @@ document
         // get the collect money input field
         const collectingMoney = getInputField("collectingMoneyInput");
 
-        /* add the collect money to the collect total */
-        const totalMoney = addTheSavingOrCollectingArea(
-            "collectingTotal",
-            collectingMoney
-        );
-
         /* Reduce Money to the Balance */
-        TotalBalanceMoney("balanceTotal", totalMoney, false);
+        const totalBalance = TotalBalanceMoney(
+            "balanceTotal",
+            collectingMoney,
+            false
+        );
+        console.log(totalBalance);
+
+        if (collectingMoney > totalBalance) {
+            return 0;
+        } else {
+            /* add the collect money to the collect total */
+            addTheSavingOrCollectingArea("collectingTotal", collectingMoney);
+        }
     });

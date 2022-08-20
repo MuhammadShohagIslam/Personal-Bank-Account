@@ -4,8 +4,8 @@ document.getElementById("submitSaving").addEventListener("click", function () {
     const savingMoney = getInputField("savingMoneyInput");
 
     /* add the saving money to the saving total */
-    const totalMoney = addTheSavingOrCollectingArea("savingTotal", savingMoney);
+    addTheSavingOrCollectingArea("savingTotal", savingMoney);
 
     /* Add Money to the Balance */
-    TotalBalanceMoney("balanceTotal", totalMoney, true);
+    TotalBalanceMoney("balanceTotal", savingMoney, true);
 });
